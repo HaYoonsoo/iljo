@@ -31,8 +31,16 @@
                 <a href="{% url 'pig_detail' pig.pk %}"><br>{{ pig.pig_name }}</a>
                 {% endfor %} </div>
         </div>
+    
+        <div class="modal">
+          <div class="modal-container">
+            <a href="{% url 'arrive' %}">
+              <button type="button">도착</button>
+            </a>
+          </div>
+        </div>
 {% endblock wrapper %}
 
 {% block script %}
-<script src="{% static "index.js" %}"></script>
+<script src="{% static 'home.js' %}"></script>
 {% endblock script %}  
