@@ -154,7 +154,11 @@ def schedule_new(request, pig_pk):
 
 @login_required(login_url="/registration/login")
 def pig_bye(request, pig_pk):
-    return render(request, 'pig_bye.html')
+    pig = Pig.objects.get(pk=pig_pk)
+    total_late = 0
+    for i in pig.participants.all():
+      total_late += i.time_late
+    return render(request, 'pig_bye.html', {'total_late': total_late})
 
 # /**********************************************************/
 
