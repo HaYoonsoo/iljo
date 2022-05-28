@@ -118,6 +118,7 @@ li{
   height: 200px;
   background: #F2F4F6;
   border-radius: 10px 10px 0px 0px;
+  overflow: auto;
 
   margin-top: 10px;
 }

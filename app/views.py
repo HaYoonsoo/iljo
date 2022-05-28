@@ -31,8 +31,12 @@ def home(request):
     if impending_schedule:
       if (impending_schedule.when_to_meet - datetime.datetime.now()).total_seconds()/60 > 30:
         impending_schedule = None
+    
+    total_late = 0
+    for participation in request.user.profile.participation_set.all():
+      total_late += participation.time_late
 
-    return render(request, "home.html",{'pigs': pigList, 'impending_schedule': impending_schedule})
+    return render(request, "home.html",{'pigs': pigList, 'impending_schedule': impending_schedule, 'total_late': total_late})
 
 
 def signup(request):
@@ -124,7 +128,7 @@ def pig_detail(request, pig_pk):
     participations = pig.participants.order_by('-time_late')
     total_late = 0
     for participation in participations:
-      total_late += participation.late_time
+      total_late += participation.time_late
     return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'participations': participations, 'total_late': total_late})
 
 
