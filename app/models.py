@@ -43,6 +43,7 @@ class Schedule(models.Model):
     schedule_description = models.TextField()
     where_to_meet = models.TextField()
     when_to_meet = models.DateTimeField()
+    arrived = models.ManyToManyField(Profile, related_name='arrived_set', blank=True)
 
     def __str__(self):
         return self.schedule_name
