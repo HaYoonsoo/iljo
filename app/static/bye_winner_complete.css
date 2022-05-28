@@ -5,6 +5,32 @@ span {
     color: black;
 } 
 
+.bold {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    color: black;
+} 
+
+box {
+    height: 50px;
+    width: 200px;
+    color: aliceblue;
+}
+
+div.wrapper{
+    min-height:100vh;
+    max-width:375px;
+    width:100%;
+    margin:0 auto;
+    border:1px solid transparent;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    /* justify-content:center; */
+}
+
+
 .body {
     width: 375px;
     height: 812px;
@@ -12,39 +38,41 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
 }
 
 
-.bold {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    color: black;
-} 
 
 .button {
+    margin-top: 40px;
     background-color: #4880EE;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
+    margin-left: 50px;
     align-items: center;
     font-style: normal;
     font-weight: 100;
     font-size: 15px;
     text-align: center;
     height: 47px;
+    width: 30%;
+
 } 
 
 a {
     text-decoration: none;
     color: #FFFFFF;
+    margin-left: 25px;
+
 }
 
 .coin {
-    width: 10%;
+    width: 15%;
+    margin-left:  75px;
+    margin-top: 30px;
 } 
 
 .piggy {
-    width: 50%;
+    width: 80%;
+    margin-left:-15px;
+    margin-top: 50px;
 }
