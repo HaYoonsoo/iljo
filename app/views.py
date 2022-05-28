@@ -62,6 +62,7 @@ def logout(request):
 
     return redirect("home")
 
+
 @login_required(login_url="/registration/login")
 def pig_new(request):
     if request.method == "POST":
@@ -81,6 +82,27 @@ def pig_new(request):
         return redirect('home')
     profiles = Profile.objects.all()
     return render(request, 'pig_new.html', {'profiles' : profiles})
+
+
+# @login_required(login_url="/registration/login")
+# def pig_new(request):
+#     if request.method == "POST":
+#         new_Pig = Pig.objects.create(
+#             pig_name = request.POST["pig_name"],
+#             host = request.user.profile,
+#             pig_description = request.POST["pig_description"],
+#             exchange_rate = request.POST["exchange_rate"],
+#         )
+#         participants_pk = request.POST.getlist('user_list');
+#         for i in participants_pk:
+#           new_participation = Participation()
+#           new_participation.profile = Profile.objects.filter(pk=i)[0]
+#           new_participation.time_late = 0
+#           new_participation.save()
+#           new_Pig.participants.add(new_participation)
+#         return redirect('home')
+#     profiles = Profile.objects.all()
+#     return render(request, 'pig_new.html', {'profiles' : profiles})
 
 @login_required(login_url="/registration/login")
 def pig_detail(request, pig_pk):
@@ -112,7 +134,7 @@ def schedule_new(request, pig_pk):
 def pig_bye(request, pig_pk):
     return render(request, 'pig_bye.html')
 
-
+# /**********************************************************/
 
 @login_required(login_url="/registration/login")
 def bye_donate(request):
@@ -121,9 +143,10 @@ def bye_donate(request):
 
 @login_required(login_url="/registration/login")
 def bye_winner(request):
+    
     return render(request, 'bye_winner.html')
 
-
+# /**********************************************************/
 
 @login_required(login_url="/registration/login")
 def bye_winner_complete(request):

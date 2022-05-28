@@ -56,7 +56,10 @@
 </div>
 
 <div class="container_3">
- {{participants}}
+  {% for participant in participants %}
+    <li>{{ participant }}</li>
+  {% endfor %}
+
 </div>
 
 {% endblock wrapper %}
