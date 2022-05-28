@@ -115,7 +115,7 @@ li{
 
 .container_2{
   width: 90%;
-  height: 300px;
+  height: 200px;
   background: #F2F4F6;
   border-radius: 10px 10px 0px 0px;
 
@@ -175,4 +175,35 @@ h1{
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
+}
+
+
+.container_3{
+  width: 90%;
+  height: 50px;
+  border-radius: 10px;
+  background: #c2c2c2;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container_3 > li{
+  width: 50px;
+  height: 30px;
+  /* background: #ffffff;
+  border-radius: 8px; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  /* padding: 0 20px; */
+
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #ffffff;
+  padding: 3px 8px;
 }
