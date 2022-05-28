@@ -1,20 +1,22 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
-{% endblock css %}
-
-{% block title %}시간저금통{% endblock title %}
-
+{% extends 'base.html' %} 
+{% load static %} {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+{% endblock css %} {% block title %}시간저금통{% endblock title %} 
 {% block wrapper %}
-<div  class="navbar">
-    <a href="{% url 'logout' %}">
-        <img class="logout" src="https://blogfiles.pstatic.net/MjAyMjA1MjhfMjY5/MDAxNjUzNzM2MDE0OTE2.t9vWy0Az1X7yCaUN-pSi39eJifqeRiPd2FQHVmDftNUg.H9qXvKzveMAr1273qUEx3O_ATpH_AabktEASKpTedFMg.PNG.skycolor10/Group_56_%281%29.png?type=w1">
-    </a>
-    <p>시간저금통</p>
-    <a href="{% url 'pig_new' %}">
-        <img class="plus" src="https://blogfiles.pstatic.net/MjAyMjA1MjhfMTc2/MDAxNjUzNzM2MDE0NjUw.ngd1xIhmuZH8Oxheqwq9Jos_FXSG9AJBBx7fMlgH9sAg.O_imRCqvbho-_iy7KnMLMz6AALim56ZPtON_EukIHKUg.PNG.skycolor10/Group_1.png?type=w1">
-    </a>
+<div class="navbar">
+  <a href="{% url 'logout' %}">
+    <img
+      class="logout"
+      src="https://blogfiles.pstatic.net/MjAyMjA1MjhfMjY5/MDAxNjUzNzM2MDE0OTE2.t9vWy0Az1X7yCaUN-pSi39eJifqeRiPd2FQHVmDftNUg.H9qXvKzveMAr1273qUEx3O_ATpH_AabktEASKpTedFMg.PNG.skycolor10/Group_56_%281%29.png?type=w1"
+    />
+  </a>
+  <p>시간저금통</p>
+  <a href="{% url 'pig_new' %}">
+    <img
+      class="plus"
+      src="https://blogfiles.pstatic.net/MjAyMjA1MjhfMTc2/MDAxNjUzNzM2MDE0NjUw.ngd1xIhmuZH8Oxheqwq9Jos_FXSG9AJBBx7fMlgH9sAg.O_imRCqvbho-_iy7KnMLMz6AALim56ZPtON_EukIHKUg.PNG.skycolor10/Group_1.png?type=w1"
+    />
+  </a>
 </div>
 
         <div  class ="mainBanner">
@@ -47,4 +49,4 @@
 
 {% block script %}
 <script src="{% static 'home.js' %}"></script>
-{% endblock script %}  
+{% endblock script %}
