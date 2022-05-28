@@ -2,14 +2,14 @@
 
 {% block wrapper %}
     <h1>일정 생성!</h1>
-    <form action="{% url 'schedule_new' pig_pk %}" method="POST"> 
+    <form action="{% url 'schedule_new' pig_pk %}" method="POST" data-form-id="1"> 
         {% csrf_token %}
         <input type="text" name="schedule_name" placeholder="일정 이름">
         <input type="text" name="schedule_description" placeholder="일정 설명">
         <input type="text" name="where_to_meet" placeholder="만날 장소">
         <input type="text" name="when_to_meet" placeholder="YYYY-MM-DD HH:MM">
 
-        <button type="submit">생성!</button>
+        <button type="submit" data-form-id="1">생성!</button>
         <a href="#" onClick="history.back();">뒤로 가기</a>
     </form>
 {% endblock wrapper %}

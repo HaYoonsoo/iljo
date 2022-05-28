@@ -1,0 +1,52 @@
+.navbar {
+  width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar p {
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #B1B8C0;
+}
+.navbar img {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+h1{
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+
+.title{
+
+}
+
+.container_1{
+
+}
+
+.button{
+
+}
+
+.big_button{
+
+}
+
+.container_2{
+  
+}
