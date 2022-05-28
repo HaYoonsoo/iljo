@@ -36,10 +36,10 @@ makepig {
     transform: translate(0, -50%)
 }
 .mainBanner p {
-    font-family: 'Noto Sans KR';
+
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
     text-align: center;
     color: #FFFFFF;
     /* line-height: 100%; */
@@ -51,9 +51,9 @@ makepig {
 }
 
 .time {
-    font-family: 'Noto Sans KR';
+    font-family: 'NanumGothic';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 20px;
     text-align: center;
     /* margin-left: 80px; */
@@ -69,7 +69,6 @@ makepig {
     top: 304px; */
     background: #F2F4F6;
     border-radius: 18px 18px 0px 0px;
-    font-family: 'Noto Sans KR';
     font-style: normal;
     color: black;
     padding: 16px;
@@ -78,9 +77,8 @@ makepig {
 }
 
 .text1 {
-    font-family: 'Noto Sans KR';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     color: black;
     padding-top: 16px;
 }
@@ -104,7 +102,6 @@ makepig {
 }
 
 .piglist {
-    font-family: 'Noto Sans KR';
     font-style: normal;
     color: black;
     font-weight: 500;
