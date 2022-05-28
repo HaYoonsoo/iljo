@@ -22,7 +22,7 @@ class Participation(models.Model):
     time_late = models.IntegerField()
 
     def __str__(self):
-        return self.time_late
+        return self.profile.nickname
 
 
 #돼지 생성 정보
