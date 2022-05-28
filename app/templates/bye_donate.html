@@ -10,16 +10,16 @@
 {% block wrapper %}
 <div class="body">
     <div class="content">
-       <h4>저금통을 깨고<br>
+       <span class="text">저금통을 깨고<br>
         굿네이버스에게<br>
-        3700원을 기부할까요?</h4>
+        3700원을 기부할까요?</span>
     </div>
     <div class="buttonBox">
-        <div class="button_left">
-            <a href="{% url 'bye_donate_complete' pig.pk %}">확인</a>
+        <div class="button_left button">
+            <a href="{% url 'bye_donate_complete' %}"><span>확인</span></a>
         </div>
-        <div class="button">
-            <a href="#" onclick="history.back();">취소</a>
+        <div class="button_right button">
+            <a href="{% url 'home' %}"><span>취소</span></a>
         </div>
     </div>
 </div>

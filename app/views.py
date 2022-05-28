@@ -23,19 +23,6 @@ def home(request):
     return render(request, "home.html",{'pigs': pigList})
 
 
-# def pig_detail(request, pig_pk):
-#     pig = Pig.objects.get(pk=pig_pk)
-#     schedules = Schedule.objects.filter(pig_info = pig_pk)
-#     participants = pig.participants.order_by('-time_late')
-
-#     return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'participants': participants})
-
-
-
-
-
-
-
 def signup(request):
     if request.method == "POST":
         profile = Profile()
@@ -119,23 +106,34 @@ def schedule_new(request, pig_pk):
       return redirect('pig_detail', pig_pk) 
     return render(request, 'schedule_new.html', {"pig_pk": pig_pk})
 
+
+
 @login_required(login_url="/registration/login")
-def pig_bye(request):
+def pig_bye(request, pig_pk):
     return render(request, 'pig_bye.html')
 
 
-@login_required(login_url="/registration/login")
-def landing(request):
-    return render(request, 'landing.html')
-
-@login_required(login_url="/registration/login")
-def bye_winner(request):
-    return render(request, 'bye_winner.html')
 
 @login_required(login_url="/registration/login")
 def bye_donate(request):
     return render(request, 'bye_donate.html')
 
+
+@login_required(login_url="/registration/login")
+def bye_winner(request):
+    return render(request, 'bye_winner.html')
+
+
+
 @login_required(login_url="/registration/login")
 def bye_winner_complete(request):
     return render(request, 'bye_winner_complete.html')
+
+
+@login_required(login_url="/registration/login")
+def bye_donate_complete(request):
+    return render(request, 'bye_donate_complete.html')
+
+@login_required(login_url="/registration/login")
+def landing(request):
+    return render(request, 'landing.html')

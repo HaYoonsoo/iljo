@@ -27,7 +27,7 @@
 
 {% if host.user.nickname == request.user.nickname %}
 <div class="button">
-  <a class="button_text" href="{% url 'pig_bye' %}">저금통 깨기</a>
+  <a class="button_text" href="{% url 'pig_bye' pig.pk %}">저금통 깨기</a>
 </div>
 {% endif %}
 
