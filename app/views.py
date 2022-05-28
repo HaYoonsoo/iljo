@@ -5,10 +5,36 @@ from .models import Profile, Participation, Pig, Schedule
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
 @login_required(login_url='/registration/login')
 def home(request):
     pigs = Pig.objects.all()
-    return render(request, "home.html",{'pigs': pigs})
+    pigList = [];
+
+    for pig in pigs:
+      if request.user.profile.pk == pig.host.pk:
+        pigList.append(pig)  
+      for participant in pig.participants.all():
+        if request.user.profile.pk == participant.profile.pk:
+          pigList.append(pig)
+
+    pigList = set(pigList)
+      
+    return render(request, "home.html",{'pigs': pigList})
+
+
+# def pig_detail(request, pig_pk):
+#     pig = Pig.objects.get(pk=pig_pk)
+#     schedules = Schedule.objects.filter(pig_info = pig_pk)
+#     participants = pig.participants.order_by('-time_late')
+
+#     return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'participants': participants})
+
+
+
+
+
+
 
 def signup(request):
     if request.method == "POST":
