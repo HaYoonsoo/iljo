@@ -1,19 +1,28 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
+
 {% block css %}
-{% load static %}  
+<link rel="stylesheet" type="text/css" href="{% static 'pig_winner.css' %}">
 {% endblock css %}
 
-{% block title %}{% endblock title %}
+{% block title %}pig_winner{% endblock title %}
 
 {% block wrapper %}
-<h4>저금통을 깨고, <br>
-    ㅌㅌㅌ님께 <br>
-    ㅌㅌㅌ원을 보낼까요?</h4>
-
-<a href="{% url 'bye_winner_complete' pig.pk %}">확인</a>
-<a href="#" onclick="history.back();">취소</a>
-
+<div class="body">
+    <div class="content">
+       <h4>저금통을 깨고<br>
+        설태준님께<br>
+        3700원을 보낼까요?</h4>
+    </div>
+    <div class="buttonBox">
+        <div class="button_left">
+            <a href="{% url 'bye_winner_complete' pig.pk %}">확인</a>
+        </div>
+        <div class="button">
+            <a href="#" onclick="history.back();">취소</a>
+        </div>
+    </div>
+</div>
 {% endblock wrapper %}
-
 {% block script %}
 {% endblock script %}
