@@ -125,7 +125,7 @@ def schedule_new(request, pig_pk):
         when_to_meet =request.POST['when_to_meet'],
       )
 
-      return redirect('pig_detail', pig_pk) 
+      return redirect('addevent_complete') 
     return render(request, 'schedule_new.html', {"pig_pk": pig_pk})
 
 
@@ -160,3 +160,7 @@ def bye_donate_complete(request):
 @login_required(login_url="/registration/login")
 def landing(request):
     return render(request, 'landing.html')
+
+def addevent_complete(request):
+    return render(request,'addevent_complete.html')
+
