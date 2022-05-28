@@ -208,3 +208,27 @@ ul{
   right: 0px;
   margin: 50px auto;
 }
+
+.modal-container{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+.modal-container > a{
+    z-index:1;
+}
+
+.modal-container > div{
+    z-index:1;
+}
+
+.alarmpig{
+    width: 100%;
+    position: absolute;
+}
+  
+  

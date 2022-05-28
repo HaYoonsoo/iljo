@@ -52,12 +52,13 @@
     </li>
     {% endfor %}
   </div>
+
   <div class="schedule_list">
     {% for participation in participations %}
     <li class="schedule">
       <div class="schedule_line">
-        <span>⏰ {{participation.profile.nickname}}</span>
-        <span>📍 {{participation.time_late}}</span>
+        <span>🙋 {{participation.profile.nickname}}</span>
+        <span>⏱ {{participation.time_late}}</span>
       </div>
     </li>
     {% endfor %}
@@ -65,10 +66,10 @@
 
 </div>
 
-<div class="container_3">
+{% comment %} <div class="container_3">
   {% for participant in participants %}
     <li> 🙋 {{ participant }}</li>
   {% endfor %}
-</div>
+</div> {% endcomment %}
 
 {% endblock wrapper %}
