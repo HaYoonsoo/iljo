@@ -35,10 +35,10 @@ New Schedule
         {% csrf_token %}
         <div class="contents">
             <div class="schedule_info">
-                <input type="text" name="schedule_name" placeholder="  일정 이름">
-                <input type="text" name="schedule_description" placeholder="  일정 설명">
-                <input type="text" name="where_to_meet" placeholder="  만날 장소">
-                <input type="text" name="when_to_meet" placeholder="  YYYY-MM-DD HH:MM">
+                <input type="text" name="schedule_name" placeholder="  일정 이름" required >
+                <input type="text" name="schedule_description" placeholder="  일정 설명" required >
+                <input type="text" name="where_to_meet" placeholder="  만날 장소" required >
+                <input type="text" name="when_to_meet" placeholder="  YYYY-MM-DD HH:MM" required >
             </div>
             <div class="submitbutton">
                 <button type="submit" data-form-id="1">일정 만들기</button>
