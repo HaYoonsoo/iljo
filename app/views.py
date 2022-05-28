@@ -75,7 +75,7 @@ def pig_new(request):
         participants_pk = request.POST.getlist('user_list');
         for i in participants_pk:
           new_participation = Participation()
-          new_participation.profile = Profile.objects.filter(pk=i)[0]
+          new_participation.profile = Profile.objects.filter(pk=int(i)-1)[0]
           new_participation.time_late = 0
           new_participation.save()
           new_Pig.participants.add(new_participation)
@@ -163,4 +163,7 @@ def landing(request):
 
 def addevent_complete(request):
     return render(request,'addevent_complete.html')
+
+def addpig_complete(request):
+    return render(request,'addpig_complete.html')
 

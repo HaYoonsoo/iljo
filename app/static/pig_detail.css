@@ -179,6 +179,7 @@ h1{
 
 
 .container_3{
+  display: flex;
   width: 90%;
   height: 50px;
   border-radius: 10px;

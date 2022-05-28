@@ -71,6 +71,7 @@ makepig {
 }
 
 .text1 {
+    text-align: center;
     font-style: normal;
     font-weight: 600;
     color: black;
@@ -102,8 +103,17 @@ makepig {
     /* margin-top: 5vh; */
     /* margin-left: 16px; */
     line-height: 30px;
-    
 }
+
+a, a:visited {
+    color: black;
+}
+
+a:hover {
+    color: #4880EE;
+}
+
+
 input{
     box-sizing: border-box;
     width: 324px;
