@@ -11,11 +11,12 @@
 <body>
     <section>
         <form method="POST" data-form-id="1">
-            {% csrf_token %} {% if error %}
-            <p>{{ error }}</p>
-            {% endif %}
+
             <div class="wrapper">
-                <p>시간저금통</p>
+                <h1>시간저금통</h1>
+                {% csrf_token %} {% if error %}
+                <p>{{ error }}</p>
+                {% endif %}
                 <div class="id_pw">
                     <input type="text" name="username" placeholder="아이디" />
                     <input type="password" name="password" placeholder="비밀번호" />
