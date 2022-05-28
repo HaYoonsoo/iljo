@@ -130,9 +130,12 @@ def pig_detail(request, pig_pk):
     schedules = Schedule.objects.filter(pig_info = pig_pk)
     participations = pig.participants.order_by('-time_late')
     total_late = 0
+    time_late = 0
     for participation in participations:
+      if participation.profile == request.user.profile:
+        time_late = participation.time_late
       total_late += participation.time_late
-    return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'participations': participations, 'total_late': total_late})
+    return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'time_late': time_late, 'participations': participations, 'total_late': total_late})
 
 
 @login_required(login_url="/registration/login")
