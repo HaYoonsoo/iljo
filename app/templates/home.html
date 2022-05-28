@@ -28,7 +28,7 @@
         </div>
         <div class="allpigs"><div class="text1">내 돼지들</div>
             <div class="piglist">{% for pig in pigs %}
-                <a href="{% url 'pig_detail' %}"><br>{{ pig.pig_name }}</a>
+                <a href="{% url 'pig_detail' pig.pk %}"><br>{{ pig.pig_name }}</a>
                 {% endfor %} </div>
         </div>
 {% endblock wrapper %}
