@@ -130,9 +130,12 @@ def pig_detail(request, pig_pk):
     schedules = Schedule.objects.filter(pig_info = pig_pk)
     participations = pig.participants.order_by('-time_late')
     total_late = 0
+    time_late = 0
     for participation in participations:
+      if participation.profile == request.user.profile:
+        time_late = participation.time_late
       total_late += participation.time_late
-    return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'participations': participations, 'total_late': total_late})
+    return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'time_late': time_late, 'participations': participations, 'total_late': total_late})
 
 
 @login_required(login_url="/registration/login")
@@ -154,7 +157,11 @@ def schedule_new(request, pig_pk):
 
 @login_required(login_url="/registration/login")
 def pig_bye(request, pig_pk):
-    return render(request, 'pig_bye.html')
+    pig = Pig.objects.get(pk=pig_pk)
+    total_late = 0
+    for i in pig.participants.all():
+      total_late += i.time_late
+    return render(request, 'pig_bye.html', {'total_late': total_late})
 
 # /**********************************************************/
 
