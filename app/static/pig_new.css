@@ -68,6 +68,8 @@ input {
   border: none;
   margin-bottom: 10px;
   border-bottom: 1px solid  #ABB5C0;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .submit {
@@ -75,19 +77,19 @@ input {
   margin-top: 20vh;
   font-family: 'NanumGothic';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 15px;
-  color: white;
+  color: #4880EE;
   border-style: none;
   cursor: pointer;
   width: 60%;
   height: 47px;
-  background: #4880EE;
+  background: #c6d9ff;
   border-radius: 12px;
 }
 .submit:hover {
-  color: #4880EE;
-  background: lightblue;
+  color: #cbddff;
+  background: #4880EE;
 }
 .inputContainer2 {
   width: 80%;
@@ -118,6 +120,13 @@ line-height: 19px;
 
 color: #323539;
 }
+
+span.time{
+  font-style: normal;
+  font-weight: 300;
+  color:#4880EE;
+}
+
 .plusWrapper {
   display:flex;
   /* width: 50%; */
