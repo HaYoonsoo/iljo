@@ -21,7 +21,7 @@
             <img class="pig" src="https://blogfiles.pstatic.net/MjAyMjA1MjhfOSAg/MDAxNjUzNzM3NDc1OTA1.bgclJwg9M_MSy8DqGu1RX8vNCRVJJQA5g5ViGf6aiyQg.tpKBJHv8lqLirgaVICniPdII5skLcSaUp8ucBgQppfYg.PNG.skycolor10/Group_62.png?type=w1">
             <div class="textWrapper">
                 <p>지금까지 {{ user.profile.nickname }} 님은</p>
-                <h2 class="time">mypig 늦은 시간 총합</h2>
+                <h2 class="time">{{ total_late }} 분</h2>
                 <p>지각하셨네요.</p>
             </div>
 
@@ -31,7 +31,18 @@
                 <a  href="{% url 'pig_detail' pig.pk %}"><a class="pigitem" >관리</a><br>{{ pig.pig_name }}</a>
                 {% endfor %} </div>
         </div>
-    
+        {% if impending_schedule %}
+        <div class="modal">
+          <div class="modal-container">
+            <div>
+              {{ impending_schedule.when_to_meet.time }}
+            </div>
+            <a href="{% url 'arrive' impending_schedule.pk %}">
+              <button type="button">도착</button>
+            </a>
+          </div>
+        </div>
+        {% endif %}
 {% endblock wrapper %}
 
 {% block script %}

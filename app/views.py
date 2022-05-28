@@ -3,13 +3,17 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Profile, Participation, Pig, Schedule
 from django.contrib.auth.decorators import login_required
+import datetime
 
 # Create your views here.
 
 @login_required(login_url='/registration/login')
 def home(request):
+    now = datetime.datetime.now()
     pigs = Pig.objects.all()
     pigList = [];
+    schedules = Schedule.objects.all().order_by('-when_to_meet')
+    #schedules = Schedule.objects.all().order_by('-when_to_meet')
 
     for pig in pigs:
       if request.user.profile.pk == pig.host.pk:
@@ -18,9 +22,21 @@ def home(request):
         if request.user.profile.pk == participant.profile.pk:
           pigList.append(pig)
 
+    impending_schedule = None
+    for schedule in schedules:
+      if not request.user.profile in schedule.arrived.all() and request.user.profile in schedule.pig_info.participants.all():
+        impending_schedule = schedule
+
     pigList = set(pigList)
-      
-    return render(request, "home.html",{'pigs': pigList})
+    if impending_schedule:
+      if (impending_schedule.when_to_meet - datetime.datetime.now()).total_seconds()/60 > 30:
+        impending_schedule = None
+    
+    total_late = 0
+    for participation in request.user.profile.participation_set.all():
+      total_late += participation.time_late
+
+    return render(request, "home.html",{'pigs': pigList, 'impending_schedule': impending_schedule, 'total_late': total_late})
 
 
 def signup(request):
@@ -74,8 +90,13 @@ def pig_new(request):
         )
         participants_pk = request.POST.getlist('user_list');
         for i in participants_pk:
+          print(i)
           new_participation = Participation()
+<<<<<<< HEAD
           new_participation.profile = Profile.objects.filter(pk=int(i)-1)[0]
+=======
+          new_participation.profile = Profile.objects.get(pk=int(i)-1)
+>>>>>>> fc091e9bf158bd1b16077ad376a84e1b7b00a833
           new_participation.time_late = 0
           new_participation.save()
           new_Pig.participants.add(new_participation)
@@ -108,9 +129,11 @@ def pig_new(request):
 def pig_detail(request, pig_pk):
     pig = Pig.objects.get(pk=pig_pk)
     schedules = Schedule.objects.filter(pig_info = pig_pk)
-    participants = pig.participants.order_by('-time_late')
-
-    return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'participants': participants})
+    participations = pig.participants.order_by('-time_late')
+    total_late = 0
+    for participation in participations:
+      total_late += participation.time_late
+    return render(request, 'pig_detail.html', {'profile': pig.host, 'pig': pig, 'schedules': schedules, 'participations': participations, 'total_late': total_late})
 
 
 @login_required(login_url="/registration/login")
@@ -161,6 +184,23 @@ def bye_donate_complete(request):
 def landing(request):
     return render(request, 'landing.html')
 
+@login_required(login_url="/registration/login")
+def arrive(request, schedule_pk):
+  schedule = Schedule.objects.get(pk=schedule_pk)
+  participations = Participation.objects.filter(profile = request.user.profile)
+  participation = None
+  for pa in participations:
+    if pa.pig.all():
+      if pa.pig.all()[0].pk == schedule.pig_info.pk:
+        participation = pa
+
+  schedule.arrived.add(request.user.profile)
+  if schedule.when_to_meet < datetime.datetime.now():
+    participation.time_late += int((datetime.datetime.now() - schedule.when_to_meet).total_seconds()/60)
+    participation.save()
+    
+
+  return redirect('home')
 def addevent_complete(request):
     return render(request,'addevent_complete.html')
 

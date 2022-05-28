@@ -182,7 +182,7 @@ ul{
 
 /* modal */
 .modal {
-  display: none;
+  display: block;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.2);
   top: 0;
