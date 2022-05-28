@@ -24,7 +24,10 @@ def home(request):
 
     impending_schedule = None
     for schedule in schedules:
-      if not request.user.profile in schedule.arrived.all() and request.user.profile in schedule.pig_info.participants.all():
+      participants = [] 
+      for i in schedule.pig_info.participants.all():
+        participants.append(i.profile)
+      if not request.user.profile in schedule.arrived.all() and request.user.profile in participants:
         impending_schedule = schedule
 
     pigList = set(pigList)
