@@ -1,4 +1,4 @@
 
-const modal = document.querySelector('.modal');
+//const modal = document.querySelector('.modal');
 
-modal.style.display = 'block';
+//modal.style.display = 'block';

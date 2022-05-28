@@ -33,4 +33,5 @@ urlpatterns = [
     path('bye_winner', views.bye_winner, name="bye_winner"),
     path('bye_donate_complete', views.bye_donate_complete, name="bye_donate_complete"),
     path('bye_winner_complete', views.bye_winner_complete, name="bye_winner_complete"),
+    path('arrive/<int:schedule_pk>', views.arrive, name='arrive'),
 ]
