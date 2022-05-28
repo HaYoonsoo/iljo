@@ -92,11 +92,7 @@ def pig_new(request):
         for i in participants_pk:
           print(i)
           new_participation = Participation()
-<<<<<<< HEAD
-          new_participation.profile = Profile.objects.filter(pk=int(i)-1)[0]
-=======
           new_participation.profile = Profile.objects.get(pk=int(i)-1)
->>>>>>> fc091e9bf158bd1b16077ad376a84e1b7b00a833
           new_participation.time_late = 0
           new_participation.save()
           new_Pig.participants.add(new_participation)
