@@ -35,4 +35,5 @@ urlpatterns = [
     path('bye_winner_complete', views.bye_winner_complete, name="bye_winner_complete"),
     path('arrive/<int:schedule_pk>', views.arrive, name='arrive'),
     path('addevent_complete', views.addevent_complete, name="addevent_complete"),
+    path('addpig_complete', views.addpig_complete, name="addpig_complete"),
 ]
