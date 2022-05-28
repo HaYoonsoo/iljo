@@ -6,8 +6,10 @@ from django.core.validators import MinValueValidator
 # Create your models here.
 
 #user의 닉네임 정보
+
+
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     nickname = models.CharField(max_length=30)
     account = models.TextField()
 
@@ -15,19 +17,20 @@ class Profile(models.Model):
         return self.nickname
 
 
-# class Participants(models.Model):
-#     participant_profile = models.ManyToManyField(Profile, related_name = "participants")
-#     time_late = models.IntegerField()
+class Participation(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name = "participation_set")
+    time_late = models.IntegerField()
 
-#     def __str__(self):
-#         return self.time_late
+    def __str__(self):
+        return self.time_late
 
 
 #돼지 생성 정보
 class Pig(models.Model):
     pig_name = models.CharField(max_length=20)
     pig_description = models.TextField()
-    # participants = models.ForeignKey(Participants, on_delete=models.CASCADE, related_name="pig_info")
+    host = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='host_set')
+    participants = models.ManyToManyField(Participation, related_name="pig", blank=True)
     exchange_rate = models.FloatField(validators=[MinValueValidator(1)])
     
     def __str__(self):
