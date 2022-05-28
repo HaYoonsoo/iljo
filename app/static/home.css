@@ -59,6 +59,7 @@ makepig {
 .allpigs {
     width: 90%;
     height: auto;
+    min-height: 50vh;
     /* left: 15px;
     top: 304px; */
     background: #F2F4F6;
